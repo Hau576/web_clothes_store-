@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop quần áo Mixi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>SHOP QUẦN ÁO MIXI</h1>
+        <div class="cart-icon" onclick="toggleCart()">
+            🛒 Giỏ hàng (<span id="cart-count">0</span>)
+        </div>
+    </header>
+
+    <main>
+        <section class="products">
+            <!-- Sản phẩm 1 -->
+            <div class="product-card" id="p1">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" alt="Áo">
+                </div>
+                <h3>Áo Thun Basic</h3>
+                <p class="price">250.000đ</p>
+                
+                <div class="main-qty-controls">
+                    <button class="qty-btn" onclick="changeMainQty('p1', -1)">-</button>
+                    <span id="p1-qty" class="qty-number">1</span>
+                    <button class="qty-btn" onclick="changeMainQty('p1', 1)">+</button>
+                </div>
+
+                <button class="btn-add" onclick="buyProduct('p1', 'Áo Thun Basic', 250000, 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500')">THÊM VÀO GIỎ</button>
+            </div>
+
+            <!-- Sản phẩm 2 -->
+            <div class="product-card" id="p2">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=500" alt="Quần">
+                </div>
+                <h3>Quần Jean Blue</h3>
+                <p class="price">450.000đ</p>
+                
+                <div class="main-qty-controls">
+                    <button class="qty-btn" onclick="changeMainQty('p2', -1)">-</button>
+                    <span id="p2-qty" class="qty-number">1</span>
+                    <button class="qty-btn" onclick="changeMainQty('p2', 1)">+</button>
+                </div>
+
+                <button class="btn-add" onclick="buyProduct('p2', 'Quần Jean Blue', 450000, 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=500')">THÊM VÀO GIỎ</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Giỏ hàng -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleCart()">&times;</span>
+            <h2 style="text-align: center; border-bottom: 2px solid #eee; padding-bottom: 10px;">Giỏ hàng</h2>
+            <div id="cart-items"></div>
+            <div class="cart-summary">
+                <div class="total-row">
+                    <span>Tổng cộng:</span>
+                    <span id="total-price" class="total-amount">0</span><span class="total-amount">đ</span>
+                </div>
+                <button class="btn-checkout" onclick="checkout()">THANH TOÁN NGAY</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
