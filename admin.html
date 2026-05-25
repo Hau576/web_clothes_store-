@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống Quản trị Cao cấp - Shop Mixi</title>
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <h2>MIXI BOARD</h2>
+            <ul>
+                <li><a href="#dashboard-section">📊 Báo cáo Doanh thu</a></li>
+                <li><a href="#orders-section">📦 Quản lý Đơn hàng</a></li>
+                <li><a href="#products-section">👕 Kho hàng & Giá bán</a></li>
+                <li><a href="index.html" target="_blank">🏪 Xem Trang Chủ</a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-main">
+            
+            <section id="dashboard-section" class="admin-card">
+                <h3>📊 TỔNG QUAN KINH DOANH</h3>
+                <div class="dashboard-grid" style="display: flex; gap: 20px; margin-top: 15px;">
+                    <div class="card-stat" style="flex: 1; background: #2980b9; color: white; padding: 20px; border-radius: 8px;">
+                        <h4>💰 Tổng Doanh Thu</h4>
+                        <p id="stat-revenue" style="font-size: 24px; font-weight: bold; margin: 5px 0;">0đ</p>
+                        <small>Từ các đơn hàng Đã duyệt</small>
+                    </div>
+                    <div class="card-stat" style="flex: 1; background: #27ae60; color: white; padding: 20px; border-radius: 8px;">
+                        <h4>📈 Tổng Lợi Nhuận ròng</h4>
+                        <p id="stat-profit" style="font-size: 24px; font-weight: bold; margin: 5px 0;">0đ</p>
+                        <small>Dựa trên Giá bán - Giá vốn</small>
+                    </div>
+                    <div class="card-stat" style="flex: 1; background: #e67e22; color: white; padding: 20px; border-radius: 8px;">
+                        <h4>📦 Đơn Hàng Thành Công</h4>
+                        <p id="stat-orders-count" style="font-size: 24px; font-weight: bold; margin: 5px 0;">0</p>
+                        <small>Đơn hàng đã hoàn thành</small>
+                    </div>
+                </div>
+            </section>
+
+            <section id="orders-section" class="admin-card">
+                <h3>📦 DANH SÁCH ĐƠN HÀNG</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã Đơn</th>
+                                <th>Thời Gian</th>
+                                <th>Khách Hàng / Sản Phẩm</th>
+                                <th>Tổng Tiền</th>
+                                <th>Trạng Thái</th>
+                                <th>Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-tbody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="products-section" class="admin-card">
+                <h3>👕 QUẢN LÝ KHO HÀNG & GIÁ BÁN</h3>
+                
+                <div class="add-product-form" style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <h4 style="margin-top:0;">➕ Thêm sản phẩm & Thiết lập giá vốn</h4>
+                    <div class="form-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 10px;">
+                        <input type="text" id="prod-name" placeholder="Tên sản phẩm">
+                        <input type="number" id="prod-cost" placeholder="Giá vốn (đ)">
+                        <input type="number" id="prod-price" placeholder="Giá bán ra (đ)">
+                        <input type="number" id="prod-stock" placeholder="Số lượng nhập kho">
+                        <input type="text" id="prod-img" placeholder="Link ảnh sản phẩm">
+                    </div>
+                    <button onclick="adminAddProduct()" style="background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">Thêm Vào Hệ Thống</button>
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ảnh</th>
+                                <th>Tên Sản Phẩm</th>
+                                <th>Giá Vốn</th>
+                                <th>Giá Bán</th>
+                                <th>Biên Lợi Nhuận (%)</th>
+                                <th>Tồn Kho</th>
+                                <th>Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-tbody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
